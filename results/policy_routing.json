@@ -1,0 +1,103 @@
+{
+  "environment": {
+    "date_utc": "2026-11-09T13:02:09+00:00",
+    "source_hash": "cd974268bde497af",
+    "kernel": "6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.12.16",
+    "cpus": 16,
+    "data_filesystem": "ext2/ext3"
+  },
+  "parameters": {
+    "seed": 20261109,
+    "tool_mix": [
+      [
+        0.3,
+        "lookup_order",
+        null
+      ],
+      [
+        0.15,
+        "send_notification",
+        null
+      ],
+      [
+        0.1,
+        "get_balance",
+        null
+      ],
+      [
+        0.2,
+        "refund",
+        [
+          1,
+          50
+        ]
+      ],
+      [
+        0.12,
+        "refund",
+        [
+          51,
+          10000
+        ]
+      ],
+      [
+        0.03,
+        "refund",
+        [
+          10001,
+          50000
+        ]
+      ],
+      [
+        0.1,
+        "block_card",
+        null
+      ]
+    ],
+    "human_mix": [
+      [
+        0.7,
+        "approve"
+      ],
+      [
+        0.2,
+        "reject"
+      ],
+      [
+        0.1,
+        "timeout"
+      ]
+    ],
+    "policy": "fast.yaml"
+  },
+  "runs": 2000,
+  "actions": 3983,
+  "finished": true,
+  "auto_approved_pct": 74.59,
+  "sent_to_human_pct": 22.22,
+  "denied_by_policy_pct": 3.19,
+  "high_risk_actions": 1012,
+  "high_risk_auto_approved": 0,
+  "decided_by_timeout": 87,
+  "escalations": 87,
+  "duplicate_effects": 0,
+  "failures": [],
+  "counts": {
+    "runs": 2000,
+    "actions": 3983,
+    "final_done": 3582,
+    "route_auto": 2971,
+    "effects": 3582,
+    "retried_executions": 0,
+    "escalations": 87,
+    "final_denied": 127,
+    "route_deny": 127,
+    "high_risk_actions": 1012,
+    "route_approval": 885,
+    "final_rejected": 187,
+    "final_timed_out": 87,
+    "decided_by_timeout": 87,
+    "failures": 0
+  }
+}

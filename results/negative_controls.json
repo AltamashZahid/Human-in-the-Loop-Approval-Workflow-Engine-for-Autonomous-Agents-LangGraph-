@@ -1,0 +1,337 @@
+{
+  "environment": {
+    "date_utc": "2026-11-09T13:01:21+00:00",
+    "source_hash": "cd974268bde497af",
+    "kernel": "6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.12.16",
+    "cpus": 16,
+    "data_filesystem": "ext2/ext3"
+  },
+  "parameters": {
+    "rounds_per_case": 20,
+    "runs_per_round": 8,
+    "tool_mix": [
+      [
+        0.3,
+        "lookup_order",
+        null
+      ],
+      [
+        0.15,
+        "send_notification",
+        null
+      ],
+      [
+        0.1,
+        "get_balance",
+        null
+      ],
+      [
+        0.2,
+        "refund",
+        [
+          1,
+          50
+        ]
+      ],
+      [
+        0.12,
+        "refund",
+        [
+          51,
+          10000
+        ]
+      ],
+      [
+        0.03,
+        "refund",
+        [
+          10001,
+          50000
+        ]
+      ],
+      [
+        0.1,
+        "block_card",
+        null
+      ]
+    ],
+    "human_mix": [
+      [
+        0.7,
+        "approve"
+      ],
+      [
+        0.2,
+        "reject"
+      ],
+      [
+        0.1,
+        "timeout"
+      ]
+    ],
+    "policy": "fast.yaml"
+  },
+  "rounds": 60,
+  "missed_rounds": 0,
+  "total_kills": 60,
+  "failed_rounds": 60,
+  "totals": {
+    "runs": 480,
+    "actions": 819,
+    "final_done": 747,
+    "route_auto": 642,
+    "effects": 796,
+    "retried_executions": 67,
+    "escalations": 34,
+    "duplicate_effects": 49,
+    "final_rejected": 26,
+    "route_approval": 147,
+    "high_risk_actions": 177,
+    "final_denied": 30,
+    "route_deny": 30,
+    "failures": 150,
+    "final_timed_out": 16,
+    "decided_by_timeout": 16,
+    "lost_runs": 63,
+    "paused_at_kill": 63,
+    "paused_intact_after_restart": 0
+  },
+  "per_point": {
+    "sink_dedupe_off": {
+      "rounds": 20,
+      "missed": 0,
+      "failed_rounds": 20,
+      "kills": 20,
+      "counts": {
+        "runs": 160,
+        "actions": 311,
+        "final_done": 281,
+        "route_auto": 236,
+        "effects": 304,
+        "retried_executions": 32,
+        "escalations": 15,
+        "duplicate_effects": 23,
+        "final_rejected": 13,
+        "route_approval": 64,
+        "high_risk_actions": 75,
+        "final_denied": 11,
+        "route_deny": 11,
+        "failures": 29,
+        "final_timed_out": 6,
+        "decided_by_timeout": 6
+      }
+    },
+    "random_idempotency_key": {
+      "rounds": 20,
+      "missed": 0,
+      "failed_rounds": 20,
+      "kills": 20,
+      "counts": {
+        "runs": 160,
+        "actions": 328,
+        "final_done": 289,
+        "route_auto": 229,
+        "effects": 315,
+        "retried_executions": 35,
+        "escalations": 19,
+        "final_denied": 16,
+        "route_deny": 16,
+        "high_risk_actions": 99,
+        "final_rejected": 13,
+        "route_approval": 83,
+        "duplicate_effects": 26,
+        "final_timed_out": 10,
+        "decided_by_timeout": 10,
+        "failures": 33
+      }
+    },
+    "in_memory_checkpointer": {
+      "rounds": 20,
+      "missed": 0,
+      "failed_rounds": 20,
+      "kills": 20,
+      "counts": {
+        "runs": 160,
+        "actions": 180,
+        "final_done": 177,
+        "route_auto": 177,
+        "effects": 177,
+        "retried_executions": 0,
+        "escalations": 0,
+        "lost_runs": 63,
+        "failures": 88,
+        "paused_at_kill": 63,
+        "paused_intact_after_restart": 0,
+        "final_denied": 3,
+        "route_deny": 3,
+        "high_risk_actions": 3
+      }
+    }
+  },
+  "first_failures": [
+    {
+      "point": "sink_dedupe_off",
+      "seed": 102234520,
+      "failures": [
+        "43ed923ab1dbc34ce58ec0253c740782: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 623088223,
+      "failures": [
+        "ac78576ac8dd8bea3db3aab5ff35d44c: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 296427003,
+      "failures": [
+        "run-296427003-3: lost its checkpoint",
+        "run-296427003-5: lost its checkpoint",
+        "run-296427003-6: lost its checkpoint",
+        "run-296427003-7: lost its checkpoint",
+        "balances differ: expected {'acct7': 9, 'acct3': 8, 'acct5': 4, 'acct2': 1}, sink has {'acct2': 1, 'acct3': 8, 'acct4': 41, 'acct5': 4, 'acct7': 9}"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 797484707,
+      "failures": [
+        "4427eedb3a3c031914a45464d628b3e9: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 17529306,
+      "failures": [
+        "d2c83966ee5104e82ebbfb3a0aa00164: 2 effects, expected 1",
+        "9e2c2d4503fe67c1128ecc15fb7bcea2: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 1000181783,
+      "failures": [
+        "run-1000181783-2: lost its checkpoint",
+        "1 paused runs changed across the kill"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 440445757,
+      "failures": [
+        "668828757af7f88407718c56e283dd83: 2 effects, expected 1",
+        "balances differ: expected {'acct8': 8, 'acct6': 8247, 'acct2': 355, 'acct7': 9969}, sink has {'acct2': 355, 'acct6': 8247, 'acct7': 9969, 'acct8': 16}"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 459151456,
+      "failures": [
+        "b623eb19432ef504ddded3419b617527: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 800495850,
+      "failures": [
+        "run-800495850-0: lost its checkpoint",
+        "run-800495850-1: lost its checkpoint",
+        "run-800495850-4: lost its checkpoint",
+        "run-800495850-7: lost its checkpoint",
+        "4 paused runs changed across the kill"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 683917093,
+      "failures": [
+        "98f34fce7bb6e25201c83fc4371c7047: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 649616054,
+      "failures": [
+        "475e2aa2e09a47f8b788af65e0335858: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 346699082,
+      "failures": [
+        "run-346699082-0: lost its checkpoint",
+        "run-346699082-5: lost its checkpoint",
+        "run-346699082-7: lost its checkpoint",
+        "3 paused runs changed across the kill"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 909990322,
+      "failures": [
+        "7b6a36528d0b0abef3cd8e8535868701: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 467165057,
+      "failures": [
+        "ea256ea884d7a01955ae2cd1c6d7d2ff: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 900221624,
+      "failures": [
+        "run-900221624-5: lost its checkpoint",
+        "run-900221624-7: lost its checkpoint",
+        "2 paused runs changed across the kill"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 186445823,
+      "failures": [
+        "b455740a7cf6591870c8f51d1f64a70e: 2 effects, expected 1",
+        "balances differ: expected {'acct6': 9320, 'acct3': 2981, 'acct7': 2, 'acct0': 37}, sink has {'acct0': 37, 'acct3': 5962, 'acct6': 9320, 'acct7': 2}"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 396852701,
+      "failures": [
+        "33c00f10c295e516de8b7b81caf03a65: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "in_memory_checkpointer",
+      "seed": 543867422,
+      "failures": [
+        "run-543867422-1: lost its checkpoint",
+        "run-543867422-2: lost its checkpoint",
+        "run-543867422-3: lost its checkpoint",
+        "run-543867422-4: lost its checkpoint",
+        "run-543867422-5: lost its checkpoint"
+      ]
+    },
+    {
+      "point": "sink_dedupe_off",
+      "seed": 975276521,
+      "failures": [
+        "ffa9a0301c34f2e03287b991147c4407: 2 effects, expected 1"
+      ]
+    },
+    {
+      "point": "random_idempotency_key",
+      "seed": 637597905,
+      "failures": [
+        "908ac698d39bf21cec6bce1ed398a299: 2 effects, expected 1",
+        "e676962d51c43ad48c95713f32d9a108: 2 effects, expected 1",
+        "balances differ: expected {'acct7': 48, 'acct4': 20, 'acct1': 46, 'acct5': 39}, sink has {'acct1': 46, 'acct4': 20, 'acct5': 39, 'acct7': 96}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "environment": {
+    "date_utc": "2026-11-09T13:24:21+00:00",
+    "source_hash": "cd974268bde497af",
+    "kernel": "6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.12.16",
+    "cpus": 16,
+    "data_filesystem": "ext2/ext3"
+  },
+  "parameters": {
+    "samples_per_trial": 2000,
+    "trials": 3,
+    "concurrency": 8,
+    "fsync": "every commit (sync_writes=True)",
+    "transport": "HTTP over loopback"
+  },
+  "trials": [
+    {
+      "samples": 2000,
+      "mean_ms": 67.37,
+      "p50_ms": 65.41,
+      "p95_ms": 88.4,
+      "p99_ms": 120.69,
+      "max_ms": 246.63
+    },
+    {
+      "samples": 2000,
+      "mean_ms": 73.51,
+      "p50_ms": 69.13,
+      "p95_ms": 103.54,
+      "p99_ms": 151.73,
+      "max_ms": 479.61
+    },
+    {
+      "samples": 2000,
+      "mean_ms": 64.94,
+      "p50_ms": 57.54,
+      "p95_ms": 124.86,
+      "p99_ms": 162.47,
+      "max_ms": 225.82
+    }
+  ],
+  "pooled": {
+    "samples": 6000,
+    "mean_ms": 68.6,
+    "p50_ms": 65.29,
+    "p95_ms": 107.26,
+    "p99_ms": 149.59,
+    "max_ms": 479.61
+  }
+}

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Unit, conformance and SIGKILL tests
+        run: python -m pytest -q
+      - name: Crash matrix, small
+        run: python experiments/crash_tests.py matrix --rounds 3 --output ci_matrix
+      - name: The negative controls still catch failures
+        run: |
+          python experiments/crash_tests.py controls --rounds 2 --output ci_controls
+          python - <<'PY'
+          import json
+          per_point = json.load(open("results/ci_controls.json"))["per_point"]
+          assert per_point["sink_dedupe_off"]["counts"].get("duplicate_effects", 0) > 0
+          assert per_point["random_idempotency_key"]["counts"].get("duplicate_effects", 0) > 0
+          assert per_point["in_memory_checkpointer"]["counts"].get("lost_runs", 0) > 0
+          PY
+      - name: The crash matrix found nothing
+        run: |
+          python - <<'PY'
+          import json
+          result = json.load(open("results/ci_matrix.json"))
+          assert result["rounds"] > 0
+          assert result["failed_rounds"] == 0, result["first_failures"]
+          PY

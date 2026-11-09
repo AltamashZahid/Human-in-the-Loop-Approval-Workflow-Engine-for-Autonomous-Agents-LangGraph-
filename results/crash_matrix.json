@@ -1,0 +1,293 @@
+{
+  "environment": {
+    "date_utc": "2026-11-09T12:58:17+00:00",
+    "source_hash": "cd974268bde497af",
+    "kernel": "6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.12.16",
+    "cpus": 16,
+    "data_filesystem": "ext2/ext3"
+  },
+  "parameters": {
+    "rounds_per_case": 100,
+    "runs_per_round": 8,
+    "tool_mix": [
+      [
+        0.3,
+        "lookup_order",
+        null
+      ],
+      [
+        0.15,
+        "send_notification",
+        null
+      ],
+      [
+        0.1,
+        "get_balance",
+        null
+      ],
+      [
+        0.2,
+        "refund",
+        [
+          1,
+          50
+        ]
+      ],
+      [
+        0.12,
+        "refund",
+        [
+          51,
+          10000
+        ]
+      ],
+      [
+        0.03,
+        "refund",
+        [
+          10001,
+          50000
+        ]
+      ],
+      [
+        0.1,
+        "block_card",
+        null
+      ]
+    ],
+    "human_mix": [
+      [
+        0.7,
+        "approve"
+      ],
+      [
+        0.2,
+        "reject"
+      ],
+      [
+        0.1,
+        "timeout"
+      ]
+    ],
+    "policy": "fast.yaml"
+  },
+  "rounds": 784,
+  "missed_rounds": 16,
+  "total_kills": 784,
+  "failed_rounds": 0,
+  "totals": {
+    "runs": 6272,
+    "actions": 12528,
+    "final_done": 11343,
+    "route_auto": 9406,
+    "effects": 11343,
+    "retried_executions": 540,
+    "escalations": 517,
+    "final_rejected": 587,
+    "route_approval": 2770,
+    "high_risk_actions": 3122,
+    "final_denied": 352,
+    "route_deny": 352,
+    "failures": 0,
+    "final_timed_out": 246,
+    "decided_by_timeout": 246,
+    "sink_replays": 373,
+    "paused_at_kill": 304,
+    "paused_intact_after_restart": 304
+  },
+  "per_point": {
+    "engine.after_decision": {
+      "rounds": 84,
+      "missed": 16,
+      "failed_rounds": 0,
+      "kills": 84,
+      "counts": {
+        "runs": 672,
+        "actions": 1356,
+        "final_done": 1214,
+        "route_auto": 962,
+        "effects": 1214,
+        "retried_executions": 67,
+        "escalations": 84,
+        "final_rejected": 68,
+        "route_approval": 357,
+        "high_risk_actions": 394,
+        "final_denied": 37,
+        "route_deny": 37,
+        "failures": 0,
+        "final_timed_out": 37,
+        "decided_by_timeout": 37,
+        "sink_replays": 33
+      }
+    },
+    "exec.after_intent": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1607,
+        "final_done": 1460,
+        "route_auto": 1232,
+        "effects": 1460,
+        "retried_executions": 136,
+        "escalations": 78,
+        "route_approval": 326,
+        "high_risk_actions": 375,
+        "final_rejected": 67,
+        "failures": 0,
+        "final_denied": 49,
+        "route_deny": 49,
+        "sink_replays": 15,
+        "final_timed_out": 31,
+        "decided_by_timeout": 31
+      }
+    },
+    "exec.after_sink": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1604,
+        "final_done": 1449,
+        "route_approval": 371,
+        "high_risk_actions": 426,
+        "effects": 1449,
+        "retried_executions": 167,
+        "escalations": 90,
+        "sink_replays": 132,
+        "route_auto": 1178,
+        "final_rejected": 61,
+        "failures": 0,
+        "final_timed_out": 39,
+        "decided_by_timeout": 39,
+        "final_denied": 55,
+        "route_deny": 55
+      }
+    },
+    "exec.after_done": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1599,
+        "final_done": 1448,
+        "route_auto": 1228,
+        "effects": 1448,
+        "retried_executions": 66,
+        "escalations": 78,
+        "route_approval": 325,
+        "high_risk_actions": 371,
+        "failures": 0,
+        "sink_replays": 31,
+        "final_denied": 46,
+        "route_deny": 46,
+        "final_rejected": 71,
+        "final_timed_out": 34,
+        "decided_by_timeout": 34
+      }
+    },
+    "ckpt.before_commit": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1592,
+        "final_done": 1455,
+        "route_auto": 1212,
+        "effects": 1455,
+        "retried_executions": 55,
+        "escalations": 69,
+        "sink_replays": 24,
+        "route_approval": 343,
+        "high_risk_actions": 380,
+        "final_rejected": 75,
+        "failures": 0,
+        "final_denied": 37,
+        "route_deny": 37,
+        "final_timed_out": 25,
+        "decided_by_timeout": 25
+      }
+    },
+    "ckpt.after_commit": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1574,
+        "final_done": 1424,
+        "route_auto": 1200,
+        "effects": 1424,
+        "retried_executions": 49,
+        "escalations": 78,
+        "sink_replays": 30,
+        "route_approval": 337,
+        "high_risk_actions": 374,
+        "failures": 0,
+        "final_rejected": 73,
+        "final_timed_out": 40,
+        "decided_by_timeout": 40,
+        "final_denied": 37,
+        "route_deny": 37
+      }
+    },
+    "sink.after_commit": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1637,
+        "final_done": 1486,
+        "route_auto": 1235,
+        "effects": 1486,
+        "retried_executions": 0,
+        "escalations": 40,
+        "sink_replays": 108,
+        "final_rejected": 72,
+        "route_approval": 363,
+        "high_risk_actions": 402,
+        "final_timed_out": 40,
+        "decided_by_timeout": 40,
+        "failures": 0,
+        "final_denied": 39,
+        "route_deny": 39
+      }
+    },
+    "while_paused": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 100,
+      "counts": {
+        "runs": 800,
+        "actions": 1559,
+        "final_done": 1407,
+        "route_auto": 1159,
+        "effects": 1407,
+        "retried_executions": 0,
+        "escalations": 0,
+        "route_approval": 348,
+        "high_risk_actions": 400,
+        "final_rejected": 100,
+        "final_denied": 52,
+        "route_deny": 52,
+        "failures": 0,
+        "paused_at_kill": 304,
+        "paused_intact_after_restart": 304
+      }
+    }
+  },
+  "first_failures": []
+}

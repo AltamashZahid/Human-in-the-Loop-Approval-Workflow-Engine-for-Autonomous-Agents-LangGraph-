@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hitl-engine"
+version = "0.1.0"
+description = "Human-in-the-loop approval engine for LangGraph agents, backed by PersistKV"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph==1.2.20",
+    "langgraph-checkpoint==4.3.1",
+    "ormsgpack",
+    "pyyaml",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "persistkv @ git+https://github.com/AltamashZahid/persist_KV.git@5917591",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic"]
+dev = ["pytest", "pytest-asyncio", "langgraph-checkpoint-conformance==0.0.2", "anthropic"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

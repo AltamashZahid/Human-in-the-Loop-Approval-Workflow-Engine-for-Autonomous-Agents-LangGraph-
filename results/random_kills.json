@@ -1,0 +1,124 @@
+{
+  "environment": {
+    "date_utc": "2026-11-09T13:00:21+00:00",
+    "source_hash": "cd974268bde497af",
+    "kernel": "6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.12.16",
+    "cpus": 16,
+    "data_filesystem": "ext2/ext3"
+  },
+  "parameters": {
+    "rounds_per_case": 100,
+    "runs_per_round": 8,
+    "tool_mix": [
+      [
+        0.3,
+        "lookup_order",
+        null
+      ],
+      [
+        0.15,
+        "send_notification",
+        null
+      ],
+      [
+        0.1,
+        "get_balance",
+        null
+      ],
+      [
+        0.2,
+        "refund",
+        [
+          1,
+          50
+        ]
+      ],
+      [
+        0.12,
+        "refund",
+        [
+          51,
+          10000
+        ]
+      ],
+      [
+        0.03,
+        "refund",
+        [
+          10001,
+          50000
+        ]
+      ],
+      [
+        0.1,
+        "block_card",
+        null
+      ]
+    ],
+    "human_mix": [
+      [
+        0.7,
+        "approve"
+      ],
+      [
+        0.2,
+        "reject"
+      ],
+      [
+        0.1,
+        "timeout"
+      ]
+    ],
+    "policy": "fast.yaml"
+  },
+  "rounds": 100,
+  "missed_rounds": 0,
+  "total_kills": 194,
+  "failed_rounds": 0,
+  "totals": {
+    "runs": 800,
+    "actions": 1603,
+    "final_done": 1444,
+    "route_auto": 1176,
+    "effects": 1444,
+    "retried_executions": 39,
+    "escalations": 55,
+    "sink_replays": 24,
+    "final_denied": 53,
+    "route_deny": 53,
+    "high_risk_actions": 427,
+    "route_approval": 374,
+    "final_timed_out": 37,
+    "decided_by_timeout": 37,
+    "final_rejected": 69,
+    "failures": 0
+  },
+  "per_point": {
+    "random": {
+      "rounds": 100,
+      "missed": 0,
+      "failed_rounds": 0,
+      "kills": 194,
+      "counts": {
+        "runs": 800,
+        "actions": 1603,
+        "final_done": 1444,
+        "route_auto": 1176,
+        "effects": 1444,
+        "retried_executions": 39,
+        "escalations": 55,
+        "sink_replays": 24,
+        "final_denied": 53,
+        "route_deny": 53,
+        "high_risk_actions": 427,
+        "route_approval": 374,
+        "final_timed_out": 37,
+        "decided_by_timeout": 37,
+        "final_rejected": 69,
+        "failures": 0
+      }
+    }
+  },
+  "first_failures": []
+}

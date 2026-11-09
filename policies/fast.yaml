@@ -1,0 +1,36 @@
+# The rules of default.yaml with short timeouts, so experiments can exercise escalation.
+default:
+  route: approval
+  escalation:
+    - {role: ops, timeout_s: 1.0}
+
+rules:
+  - name: read_only
+    when: {tool: {in: [lookup_order, get_balance]}}
+    route: auto
+
+  - name: notification
+    when: {tool: send_notification}
+    route: auto
+
+  - name: small_refund
+    when: {tool: refund, args.amount: {lte: 50}}
+    route: auto
+
+  - name: oversized_refund
+    when: {tool: refund, args.amount: {gt: 10000}}
+    route: deny
+
+  - name: large_refund
+    when: {tool: refund, args.amount: {gt: 50}}
+    route: approval
+    escalation:
+      - {role: support_lead, timeout_s: 0.5}
+      - {role: finance_manager, timeout_s: 0.5}
+
+  - name: block_card
+    when: {tool: block_card}
+    route: approval
+    escalation:
+      - {role: fraud_analyst, timeout_s: 0.5}
+      - {role: fraud_lead, timeout_s: 0.5}
